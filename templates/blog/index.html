@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <h2>This is Block Index Page</h2>
+{% if not items %}
+<p>Not Post Items. Please Post Your Item</p>
+{% endif %}
 {% for item in items %}
   <h3>Title: {{ item.title }}</h3>
-  <a href="">詳細ページへ移動する（comming soon）</a>
+  <a href="{% url 'blog_update' item.id %}">Move Detail Page</a>
+  <a href="{% url 'blog_delete' item.id %}">Delete</a>
 {% endfor %}
 {% endblock %}

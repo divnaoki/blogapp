@@ -15,10 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from blog.views import index_view, create_view
+from requests import delete
+from blog.views import delete_view, index_view, create_view, update_view, detail_view, delete_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', index_view, name='blog_index'),
     path('blog/create', create_view, name='blog_create'),
+    path('blog/<str:pk>/update', update_view, name='blog_update'),
+    path('blog/<str:pk>/', detail_view, name='blog_update'),
+    path('blog/<str:pk>/delete', delete_view, name='blog_delete'),
 ]
