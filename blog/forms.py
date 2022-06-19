@@ -21,7 +21,9 @@ class BlogForm(forms.ModelForm):
   )
   category = forms.ModelChoiceField(
     label='category',
-    queryset=Category.objects,
+    queryset=Category.objects.all(),
+    empty_label="select your category",
+    to_field_name="name",
     required=False
   )
   class Meta:

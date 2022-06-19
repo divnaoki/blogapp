@@ -3,6 +3,7 @@ from operator import itemgetter
 from django.shortcuts import redirect, render
 from .models import Blog
 from .forms import BlogForm
+from category.models import Category
 # Create your views here.
 def index_view(request):
   items = Blog.objects.all()
@@ -15,6 +16,7 @@ def create_view(request):
   form = BlogForm()
   if request.method == "POST":
     form = BlogForm(request.POST)
+    # form.fields['category'] = Category.objects.all()
     if form.is_valid():
       form.save()
       return redirect("/blog")

@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 {% if items %}
-
+  <h2>Index Category</h2>
+  <ul>
+    {% for item in items %}
+      <li>{{ item.name }}</li>
+    {% endfor %}
+  </ul>
 {% else %}
   <p>Please Create Category</p>
 {% endif %}
