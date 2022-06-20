@@ -53,7 +53,7 @@ def delete_view(request, pk):
   item = Blog.objects.get(id=pk)
   if request.method == "POST":
     item.delete()
-    return redirect("/blog")
+    return redirect("/category")
   context = {
     "item": item
   }
