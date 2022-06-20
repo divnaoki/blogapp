@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from blog.views import delete_view, index_view, create_view, update_view, detail_view, delete_view
-from category.views import category_create_view, category_index_view
+from category.views import category_create_view, category_delete_view, category_index_view, category_update_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', index_view, name='blog_index'),
@@ -25,5 +25,7 @@ urlpatterns = [
     path('blog/<str:pk>/', detail_view, name='blog_update'),
     path('blog/<str:pk>/delete', delete_view, name='blog_delete'),
     path('category/', category_index_view, name='category_index'),
-    path('category/create', category_create_view, name='category_create')
+    path('category/create', category_create_view, name='category_create'),
+    path('category/<str:pk>/update', category_update_view, name='category_update'),
+    path('category/<str:pk>/delete', category_delete_view, name='category_delete'),
 ]

@@ -2,11 +2,11 @@
 {% block content %}
 {% if items %}
   <h2>Index Category</h2>
-  <ul>
     {% for item in items %}
-      <li>{{ item.name }}</li>
+      <p>{{ item.name }}</p>
+      <a href="{% url 'category_update' item.id %}">Update category</a>
+      <a href="{% url 'category_delete' item.id %}">Delete</a>
     {% endfor %}
-  </ul>
 {% else %}
   <p>Please Create Category</p>
 {% endif %}
