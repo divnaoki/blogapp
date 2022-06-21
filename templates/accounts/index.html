@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>All Accounts List</h2>
+<ul>
+  {% for account in accounts %}
+    <li>
+      <p>account.username</p>
+      <p>account.profile</p>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

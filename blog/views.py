@@ -5,6 +5,10 @@ from .models import Blog
 from .forms import BlogForm
 from category.models import Category
 # Create your views here.
+
+def home_view(request):
+  return render(request, 'home.html')
+  
 def index_view(request):
   items = Blog.objects.all()
   context = {
